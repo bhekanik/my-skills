@@ -2,7 +2,7 @@
 
 I like doing the hard thinking with a strong model: deciding what to build, finding the right boundaries, and checking whether the result works. Once the plan is clear, I want agents to carry the implementation without turning it into one enormous diff or spending frontier-model tokens on every task.
 
-This is where I share the skills I've built for that way of working. I mostly use them on my own projects. They're plain files you can read, change, and make your own.
+This is where I share the skills I've built for that way of working. I mostly use them on my own projects. They're plain files you can inspect before using them.
 
 ## Start with `orchestrate`
 
