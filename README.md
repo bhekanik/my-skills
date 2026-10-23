@@ -1,26 +1,22 @@
 # Skills I use with coding agents
 
-I like doing the hard thinking with a strong model: deciding what to build, finding the right boundaries, and checking whether the result works. Once the plan is clear, I want agents to carry the implementation without turning it into one enormous diff or spending frontier-model tokens on every task.
+I build a lot with agents. The best results come when the agent knows which decisions are settled, which claims need evidence, what a person will have to review, and when to stop and ask me something. These skills are instructions I've written for those moments. I've mostly used them on my own projects.
 
-This is where I share the skills I've built for that way of working. I mostly use them on my own projects. They're plain files you can inspect before using them.
+## The skills
 
-## Start with `orchestrate`
+- **[blueprint](skills/blueprint/SKILL.md)** turns a long design conversation into a set of documents another coding agent can build from, including the decisions, rejected ideas, open questions, release ladder, and the experience the product should create.
+- **[orchestrate](skills/orchestrate/SKILL.md)** takes a substantial implementation after planning. It breaks the outcome into useful releases, gives bounded tasks to worker models, checks the result, and uses smaller PRs or a stack when that makes the change easier to review.
+- **[archaeology](skills/archaeology/SKILL.md)** finds out why a piece of code or a process exists, checks whether that reason still holds, and maps what would break if it changed.
+- **[one-by-one](skills/one-by-one/SKILL.md)** gathers the decisions an agent needs from you and asks for them one at a time, in plain language.
 
-[`orchestrate`](skills/orchestrate/SKILL.md) is for substantial work that needs more than one implementation pass. I invoke it after working through the plan in my main session. It coordinates the rest:
-
-- Break the outcome into useful, deployable slices, then give workers bounded tasks.
-- Start workers on cheaper, faster models when the task allows it. Raise reasoning effort and model tier only when the evidence shows the current choice is struggling.
-- Keep changes small enough to review. When a slice still makes a large diff, use focused, stacked PRs with a clear reading order.
-- Verify, review, and ship each increment, then carry what was learned into the next one.
-
-It isn't a shortcut for a one-agent fix. The point is to keep the human in control of the plan and make the implementation easier to inspect.
+I use `blueprint` when a planning conversation has become too large to carry into implementation by memory. I use `orchestrate` when the work needs several passes or people to review a large change. `archaeology` is for the moment a dependency has no clear reason, and `one-by-one` is for when an agent has buried a question under status and options.
 
 ## Install
 
 ```sh
-npx skills add bhekanik/my-skills --skill orchestrate
+npx skills add bhekanik/my-skills
 ```
 
-Run the command in your project to install the skill there. Add `-g` if you want it available globally. Then invoke `/orchestrate` with your goal and the checks that would prove it works.
+Choose the skills you want and the agent you use. To install just one, add `--skill blueprint`, `--skill orchestrate`, `--skill archaeology`, or `--skill one-by-one`. Add `-g` to install it globally instead of in the current project.
 
-More skills can live alongside it in [`skills/`](skills/).
+Each skill is a folder under [`skills/`](skills/), so you can inspect its instructions and any supporting files before using it.

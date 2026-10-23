@@ -1,0 +1,5 @@
+interface:
+  display_name: "One by One"
+  short_description: "Ask what you need, one question at a time"
+policy:
+  allow_implicit_invocation: false
