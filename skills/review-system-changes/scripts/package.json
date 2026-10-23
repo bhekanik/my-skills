@@ -1,0 +1,21 @@
+{
+  "name": "review-system-changes",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Analysis engine for the review-system-changes skill",
+  "engines": {
+    "node": "20 || >=22"
+  },
+  "bin": {
+    "analyze": "analyze.mjs"
+  },
+  "scripts": {
+    "analyze": "node ./analyze.mjs",
+    "comments": "node ./pr-comments.mjs",
+    "render": "node ./render.mjs"
+  },
+  "dependencies": {
+    "ts-morph": "^28.0.0"
+  }
+}

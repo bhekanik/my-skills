@@ -1,0 +1,13 @@
+# Optional accelerators for bookgen scripts.
+#
+# Everything works without these (scripts fall back to regex + stdlib), but
+# installing them gives accurate cross-language structure for sequence.py
+# (dependency-ordered chapter sequencing) and drift.py (structural fingerprints).
+#
+#   pip install -r scripts/requirements.txt
+#
+# tomli is only needed on Python < 3.11 (3.11+ has tomllib in the stdlib).
+
+tree-sitter>=0.21
+tree-sitter-language-pack>=0.20
+tomli>=2.0 ; python_version < "3.11"

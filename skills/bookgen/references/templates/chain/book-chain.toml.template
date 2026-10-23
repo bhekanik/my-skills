@@ -1,0 +1,31 @@
+# Chain registry for this book — declares which BookChain it belongs to and
+# what its sibling books are. The chain's value is the cross-book concept
+# graph: chapter A in this book can teach a concept that chapter B in a
+# sibling book requires, and the chain-index generator surfaces those links.
+#
+# Lives at the book repo root. One per book.
+#
+# IMPORTANT TOML ordering: top-level keys (chain, description, anchor_repo,
+# position) MUST come BEFORE any [[siblings]] table. Any key=value lines
+# after [[siblings]] are parsed as belonging to the last sibling, not as
+# top-level.
+
+chain = "{{CHAIN_NAME}}"
+description = "{{CHAIN_DESCRIPTION}}"
+
+# Anchor codebase for drift detection. Path relative to this book repo,
+# or an absolute path.
+anchor_repo = "{{ANCHOR_REPO}}"
+
+# 1-indexed position of this book in the chain.
+position = {{POSITION}}
+
+# Sibling books (other books in the same chain).
+[[siblings]]
+name = "{{SIBLING_1_NAME}}"
+path = "{{SIBLING_1_PATH}}"
+# url = "https://github.com/<owner>/<repo>"
+
+# [[siblings]]
+# name = "..."
+# path = "..."

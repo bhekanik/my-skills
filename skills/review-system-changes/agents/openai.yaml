@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review System Changes"
+  short_description: "Map agent code changes as architecture"
+  default_prompt: "Use $review-system-changes to map the modules, dependencies, call graph, and data flow of the changes in this repo."

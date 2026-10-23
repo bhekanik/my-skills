@@ -1,15 +1,17 @@
 # Skills I use with coding agents
 
-I build a lot with agents. The best results come when the agent knows which decisions are settled, which claims need evidence, what a person will have to review, and when to stop and ask me something. These skills are instructions I've written for those moments. I've mostly used them on my own projects.
+I build and learn with coding agents. These skills capture the parts of that work that are easy to lose between sessions: decisions, evidence, a human review path, and a way to keep learning while agents write code. I've mostly used them on my own projects.
 
 ## The skills
 
-- **[blueprint](skills/blueprint/SKILL.md)** turns a long design conversation into a set of documents another coding agent can build from, including the decisions, rejected ideas, open questions, release ladder, and the experience the product should create.
-- **[orchestrate](skills/orchestrate/SKILL.md)** takes a substantial implementation after planning. It breaks the outcome into useful releases, gives bounded tasks to worker models, checks the result, and uses smaller PRs or a stack when that makes the change easier to review.
-- **[archaeology](skills/archaeology/SKILL.md)** finds out why a piece of code or a process exists, checks whether that reason still holds, and maps what would break if it changed.
-- **[one-by-one](skills/one-by-one/SKILL.md)** gathers the decisions an agent needs from you and asks for them one at a time, in plain language.
-
-I use `blueprint` when a planning conversation has become too large to carry into implementation by memory. I use `orchestrate` when the work needs several passes or people to review a large change. `archaeology` is for the moment a dependency has no clear reason, and `one-by-one` is for when an agent has buried a question under status and options.
+- [blueprint](skills/blueprint/SKILL.md) turns a design conversation into documents another coding agent can build from, including decisions, open questions, a release ladder, and the intended experience.
+- [orchestrate](skills/orchestrate/SKILL.md) coordinates substantial implementation in useful releases, routes bounded tasks to worker models, and keeps changes reviewable through focused PRs or a stack.
+- [archaeology](skills/archaeology/SKILL.md) finds why code or a process exists, checks whether that reason still holds, and maps what depends on it.
+- [review-system-changes](skills/review-system-changes/SKILL.md) makes an interactive map of a TypeScript or JavaScript change so a reviewer can follow modules, calls, data flow, and the diff.
+- [writing-docs](skills/writing-docs/SKILL.md) writes software documentation around what readers need to do and what verified output they should see.
+- [teaching](skills/teaching/SKILL.md) turns a coding session into a lesson: predict, run, examine the result, and explain the concept back.
+- [bookgen](skills/bookgen/SKILL.md) builds a multi-session learning book around a real repository. Install `teaching` alongside it; the generated book vendors a snapshot of that skill.
+- [one-by-one](skills/one-by-one/SKILL.md) gathers the decisions an agent needs from you and asks for them one at a time in plain language.
 
 ## Install
 
@@ -17,6 +19,6 @@ I use `blueprint` when a planning conversation has become too large to carry int
 npx skills add bhekanik/my-skills
 ```
 
-Choose the skills you want and the agent you use. To install just one, add `--skill blueprint`, `--skill orchestrate`, `--skill archaeology`, or `--skill one-by-one`. Add `-g` to install it globally instead of in the current project.
+Choose the skills you want and the agent you use. To install just one, add `--skill <name>`. Add `-g` to install it globally instead of in the current project. For `bookgen`, choose `teaching` too.
 
-Each skill is a folder under [`skills/`](skills/), so you can inspect its instructions and any supporting files before using it.
+Each skill lives under [`skills/`](skills/), where you can read its instructions and supporting files before using it.

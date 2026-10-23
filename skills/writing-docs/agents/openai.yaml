@@ -1,0 +1,4 @@
+interface:
+  display_name: "Writing Docs"
+  short_description: "Write operational software docs"
+  default_prompt: "Use $writing-docs to write a docs page for this feature."
