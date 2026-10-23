@@ -1,24 +1,18 @@
 # Skills I use with coding agents
 
-I spend time talking through what I want to build with an agent: the problem, the experience, the architecture, and the tradeoffs. Once we've made the important decisions, I use [blueprint](skills/blueprint/SKILL.md) to turn that conversation into a comprehensive build plan. Other people might call it a spec; I call it a blueprint. It gives the next agent the decisions, open questions, implementation sequence, and intended experience in one place.
+I've mostly used these on my own projects.
 
-For substantial implementation, I use [orchestrate](skills/orchestrate/SKILL.md). It breaks the work into useful releases and bounded tasks, picks worker models according to cost and capability, checks their output, and keeps changes small enough to review. It can use a stack of PRs when that makes the solution easier to follow. I've mostly tested this workflow on my own projects, so I don't have a reliable measurement of its cost impact at work.
+## The skills
 
-## When the agent needs a decision from me
-
-Agents sometimes bury several questions in a wall of text. I use [one-by-one](skills/one-by-one/SKILL.md) to have the agent work out what it actually needs from me, then ask one question at a time with enough context to answer without hunting through the previous response.
-
-## When I need to understand or explain the work
-
-- [archaeology](skills/archaeology/SKILL.md) traces why code or a process exists, whether that reason still holds, and what depends on it.
-- [review-system-changes](skills/review-system-changes/SKILL.md) maps a TypeScript or JavaScript change so I can follow its modules, calls, data flow, and diff during review.
-- [teaching](skills/teaching/SKILL.md) makes a coding session an active lesson: predict what will happen, run it, examine the result, and explain it back.
-- [bookgen](skills/bookgen/SKILL.md) builds a learning book around a real repository for a longer course of study. Install `teaching` alongside it; generated books include a snapshot of that skill.
-
-## When the writing needs work
-
-- [writing-docs](skills/writing-docs/SKILL.md) writes software documentation around what the reader needs to do and what verified result they should see.
-- [humanizer](skills/humanizer/SKILL.md) edits prose to remove common AI writing patterns while preserving the facts and the author's voice. This is my adapted copy of [Siqi Chen's Humanizer](https://github.com/blader/humanizer), distributed under its [MIT license](skills/humanizer/LICENSE).
+- [blueprint](skills/blueprint/SKILL.md) writes a detailed build plan after I've talked through what I want to build and its architecture with an agent. Other people might call this a spec; I call it a blueprint.
+- [orchestrate](skills/orchestrate/SKILL.md) breaks substantial implementation into smaller tasks and reviewable PRs, then routes each task to the cheapest model that can handle it. It checks the brief and task split before raising reasoning effort or switching models.
+- [one-by-one](skills/one-by-one/SKILL.md) pulls questions out of an agent's wall of text and asks them one at a time, with enough context for me to answer each one.
+- [archaeology](skills/archaeology/SKILL.md) finds why code or a process exists, checks whether that reason still holds, and maps what depends on it.
+- [review-system-changes](skills/review-system-changes/SKILL.md) makes an interactive map of a TypeScript or JavaScript change so I can follow modules, calls, data flow, and the diff.
+- [writing-docs](skills/writing-docs/SKILL.md) writes software documentation around what readers need to do and what verified result they should see.
+- [teaching](skills/teaching/SKILL.md) turns a coding session into a lesson: predict, run, examine the result, and explain it back.
+- [bookgen](skills/bookgen/SKILL.md) builds a learning book around a real repository. Install `teaching` alongside it; the generated book includes a snapshot of that skill.
+- [humanizer](skills/humanizer/SKILL.md) removes common AI writing patterns without changing the facts or flattening the author's voice. This is my adapted copy of [Siqi Chen's Humanizer](https://github.com/blader/humanizer), under its [MIT license](skills/humanizer/LICENSE).
 
 ## Install
 
@@ -26,4 +20,6 @@ Agents sometimes bury several questions in a wall of text. I use [one-by-one](sk
 npx skills add bhekanik/my-skills
 ```
 
-Choose the skills you want and the agent you use. Add `--skill <name>` to install just one, or `-g` to install globally. For `bookgen`, choose `teaching` too. Every skill's instructions and supporting files are under [`skills/`](skills/).
+Choose the skills you want and the agent you use. To install just one, add `--skill <name>`. Add `-g` to install it globally. For `bookgen`, choose `teaching` too.
+
+Each skill lives under [`skills/`](skills/), where you can read its instructions and supporting files before using it.
